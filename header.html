@@ -1,0 +1,239 @@
+<div class="header-container">
+    <a href="/" class="brand-identity">
+        <div class="p-squircle">
+            <span class="p-letter">P</span>
+        </div>
+        <div class="brand-text">
+            Prospectif<span class="ai-accent">AI</span>
+        </div>
+    </a>
+
+    <nav class="desktop-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/platform" class="nav-link">Platform</a>
+        <a href="/sprints" class="nav-link">Sprints</a>
+        <a href="/pricing" class="nav-link">Pricing</a>
+        <a href="/about-us" class="nav-link">About</a>
+        <a href="/contact-us" class="nav-link">Contact</a>
+        <a href="https://app.prospectif.ai" class="nav-link ghost-btn">Sign In</a>
+        <a href="/contact-us" class="nav-link primary-btn">Start Free Trial</a>
+    </nav>
+
+    <div class="mobile-toggle" onclick="toggleMobileMenu()">≡</div>
+</div>
+
+<div id="mobile-overlay" class="mobile-overlay">
+    <div class="m-close" onclick="toggleMobileMenu()">✕</div>
+    <div class="m-content">
+        <a href="/" class="m-link" onclick="toggleMobileMenu()">Home</a>
+        <a href="/platform" class="m-link" onclick="toggleMobileMenu()">Platform</a>
+        <a href="/sprints" class="m-link" onclick="toggleMobileMenu()">Sprints</a>
+        <a href="/pricing" class="m-link" onclick="toggleMobileMenu()">Pricing</a>
+        <a href="/about-us" class="m-link" onclick="toggleMobileMenu()">About</a>
+        <a href="/contact-us" class="m-link" onclick="toggleMobileMenu()">Contact</a>
+        <a href="/contact-us" class="m-link highlight" onclick="toggleMobileMenu()">Start Free Trial</a>
+    </div>
+</div>
+
+<script>
+    function toggleMobileMenu() {
+        const overlay = document.getElementById('mobile-overlay');
+        overlay.classList.toggle('is-active');
+        document.body.style.overflow = overlay.classList.contains('is-active') ? 'hidden' : 'auto';
+    }
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+/* Base Layout */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(248, 245, 242, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #E5E1DD;
+}
+
+/* Brand */
+.brand-identity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    z-index: 10001;
+}
+
+.p-squircle {
+    width: 32px; height: 32px;
+    background: #2D2926;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+.p-letter {
+    color: #F8F5F2;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600; font-size: 15px;
+    line-height: 1;
+}
+
+.brand-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600; font-size: 16px;
+    color: #2D2926;
+    letter-spacing: -0.02em;
+}
+
+.ai-accent {
+    color: #8B7E74;
+    font-weight: 600;
+    margin-left: 1px;
+}
+
+/* Desktop Nav */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #6B7280;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    transition: color 0.15s;
+    white-space: nowrap;
+}
+
+.nav-link:hover { color: #2D2926; }
+
+/* Ghost button — Sign In */
+.ghost-btn {
+    color: #2D2926 !important;
+    border: 1px solid #E5E1DD;
+    padding: 7px 16px;
+    border-radius: 4px;
+    font-weight: 500 !important;
+    transition: border-color 0.15s, background 0.15s !important;
+}
+
+.ghost-btn:hover {
+    border-color: #8B7E74 !important;
+    background: #EDE9E4 !important;
+    color: #2D2926 !important;
+}
+
+/* Primary button — Start Free Trial */
+.primary-btn {
+    color: #F8F5F2 !important;
+    background: #2D2926;
+    border: 1px solid #2D2926;
+    padding: 7px 16px;
+    border-radius: 4px;
+    font-weight: 500 !important;
+    transition: background 0.15s !important;
+    white-space: nowrap;
+}
+
+.primary-btn:hover {
+    background: #3d3632 !important;
+    color: #F8F5F2 !important;
+}
+
+/* Mobile toggle */
+.mobile-toggle {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #2D2926;
+    user-select: none;
+    line-height: 1;
+}
+
+/* Mobile overlay */
+.mobile-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #F8F5F2;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(-8px);
+}
+
+.mobile-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.m-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+}
+
+.m-link {
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    color: #2D2926;
+    padding: 10px 0;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    transition: color 0.15s;
+}
+
+.m-link:hover { color: #8B7E74; }
+
+.m-link.highlight {
+    color: #2D2926;
+    font-weight: 600;
+    margin-top: 16px;
+    padding: 12px 32px;
+    border: 1px solid #2D2926;
+    border-radius: 4px;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.m-close {
+    position: absolute;
+    top: 20px; right: 5%;
+    font-size: 22px;
+    cursor: pointer;
+    color: #2D2926;
+    padding: 10px;
+    line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .desktop-nav { display: none; }
+    .mobile-toggle { display: block; }
+    .header-container { padding: 0 24px; }
+}
+</style>
