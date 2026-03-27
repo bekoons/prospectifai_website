@@ -1,0 +1,1175 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --linen: #F8F5F2;
+  --charcoal: #2D2926;
+  --taupe: #8B7E74;
+  --border: #E5E1DD;
+  --slate: #6B7280;
+  --white: #ffffff;
+  --charcoal-soft: #3d3632;
+  --linen-deep: #ede9e4;
+  --green-soft: #e8f0eb;
+  --green-mid: #4a7c59;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--linen);
+  color: var(--charcoal);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 48px 80px;
+  text-align: center;
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--border);
+}
+
+.hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--charcoal);
+  max-width: 860px;
+  margin-bottom: 28px;
+}
+
+.hero h1 strong {
+  font-weight: 600;
+}
+
+.hero h1 .taupe { color: var(--taupe); font-weight: 300; }
+
+.hero-sub {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--slate);
+  max-width: 520px;
+  font-weight: 300;
+  margin-bottom: 44px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 80px;
+}
+
+.btn-hero {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  color: var(--linen);
+  background: var(--charcoal);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.btn-hero:hover { background: var(--charcoal-soft); }
+
+.btn-hero-ghost {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--slate);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s;
+}
+
+.btn-hero-ghost:hover { color: var(--charcoal); }
+.btn-hero-ghost::after { content: '→'; font-size: 16px; }
+
+/* PRODUCT PREVIEW */
+.product-preview {
+  width: 100%;
+  max-width: 900px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.preview-bar {
+  background: var(--linen-deep);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.preview-dots { display: flex; gap: 6px; }
+.preview-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+
+.preview-url {
+  margin-left: 12px;
+  font-size: 11px;
+  color: var(--taupe);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 3px 14px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* MOCK DASHBOARD INSIDE PREVIEW */
+.dash {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  height: 420px;
+}
+
+.dash-sidebar {
+  background: var(--linen);
+  border-right: 1px solid var(--border);
+  padding: 20px 0;
+}
+
+.dash-logo {
+  padding: 0 18px 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--charcoal);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dash-logo-mark {
+  width: 22px; height: 22px;
+  background: var(--charcoal);
+  border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: var(--linen); font-weight: 600;
+}
+
+.dash-nav-item {
+  padding: 7px 18px;
+  font-size: 12px;
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+}
+
+.dash-nav-item.active {
+  color: var(--charcoal);
+  background: var(--linen-deep);
+  font-weight: 500;
+  border-left: 2px solid var(--charcoal);
+}
+
+.dash-nav-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.dash-nav-item.active .dash-nav-dot { background: var(--charcoal); }
+
+.dash-main {
+  padding: 20px 24px;
+  overflow: hidden;
+}
+
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.dash-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: -0.02em;
+}
+
+.dash-tag {
+  font-size: 10px;
+  font-weight: 500;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  background: var(--green-soft);
+  border: 1px solid #c5dbc9;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.metric-card {
+  background: var(--linen);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+
+.metric-val {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--charcoal);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.metric-val.green { color: var(--green-mid); }
+
+.metric-label {
+  font-size: 10px;
+  color: var(--taupe);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* Mini chart */
+.chart-area {
+  background: var(--linen);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  height: 110px;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-label {
+  font-size: 10px;
+  color: var(--taupe);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 60px;
+}
+
+.chart-bar {
+  flex: 1;
+  background: var(--border);
+  border-radius: 2px 2px 0 0;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.chart-bar.lit { background: var(--charcoal); }
+.chart-bar.mid { background: var(--taupe); }
+
+/* Lead table */
+.lead-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.lead-table th {
+  text-align: left;
+  padding: 6px 8px;
+  color: var(--taupe);
+  font-weight: 500;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 9px;
+  border-bottom: 1px solid var(--border);
+}
+
+.lead-table td {
+  padding: 7px 8px;
+  color: var(--charcoal);
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+}
+
+.lead-table tr:last-child td { border-bottom: none; }
+
+.status-pill {
+  font-size: 9px;
+  font-weight: 500;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 100px;
+  display: inline-block;
+}
+
+.status-pill.hot { background: #fef3e2; color: #92560a; border: 1px solid #f5d9a8; }
+.status-pill.nurture { background: var(--green-soft); color: var(--green-mid); border: 1px solid #c5dbc9; }
+.status-pill.new { background: var(--linen-deep); color: var(--taupe); border: 1px solid var(--border); }
+
+.score-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.score-bar-track {
+  width: 48px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: var(--charcoal);
+}
+
+/* SECTIONS */
+section { padding: 100px 48px; }
+
+.section-inner { max-width: 1000px; margin: 0 auto; }
+
+.eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 20px;
+}
+
+h2.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: clamp(30px, 4vw, 48px);
+  letter-spacing: -0.03em;
+  color: var(--charcoal);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+h2.section-title strong { font-weight: 600; }
+
+.section-sub {
+  font-size: 16px;
+  color: var(--slate);
+  max-width: 480px;
+  font-weight: 300;
+  line-height: 1.65;
+  margin-bottom: 56px;
+}
+
+/* HOW IT WORKS */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 64px;
+}
+
+.works-cell {
+  background: var(--white);
+  padding: 36px 32px;
+}
+
+.works-num {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 42px;
+  letter-spacing: -0.04em;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.works-cell h3 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+
+.works-cell p {
+  font-size: 13px;
+  color: var(--slate);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* BENTO GRID */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.bento-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px 30px;
+  overflow: hidden;
+}
+
+.bento-card.span-8 { grid-column: span 8; }
+.bento-card.span-4 { grid-column: span 4; }
+.bento-card.span-5 { grid-column: span 5; }
+.bento-card.span-7 { grid-column: span 7; }
+.bento-card.span-6 { grid-column: span 6; }
+.bento-card.dark { background: var(--charcoal); border-color: var(--charcoal); }
+
+.bento-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 14px;
+}
+
+.bento-card.dark .bento-eyebrow { color: rgba(248,245,242,0.4); }
+
+.bento-card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.bento-card.dark h3 { color: var(--linen); }
+
+.bento-card p {
+  font-size: 13px;
+  color: var(--slate);
+  font-weight: 300;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+.bento-card.dark p { color: rgba(248,245,242,0.55); }
+
+.bento-stat {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 52px;
+  letter-spacing: -0.04em;
+  color: var(--charcoal);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.bento-stat span { color: var(--taupe); }
+
+/* Channel pills */
+.channel-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.channel-pill {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  background: var(--linen);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+
+/* Sprint modules */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.module-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px 28px 32px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.module-card:hover { border-color: var(--taupe); }
+
+.module-tag {
+  font-family: 'Outfit', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  background: var(--linen-deep);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.module-card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+
+.module-card p {
+  font-size: 13px;
+  color: var(--slate);
+  font-weight: 300;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.module-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.module-features li {
+  font-size: 12px;
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.module-features li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--taupe);
+  flex-shrink: 0;
+}
+
+/* PRICING */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.price-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px 30px;
+}
+
+.price-card.featured {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+}
+
+.price-tier {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 20px;
+}
+
+.price-card.featured .price-tier { color: rgba(248,245,242,0.45); }
+
+.price-num {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 42px;
+  letter-spacing: -0.04em;
+  color: var(--charcoal);
+  line-height: 1;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.price-card.featured .price-num { color: var(--linen); }
+
+.price-num sup {
+  font-size: 18px;
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+.price-period {
+  font-size: 12px;
+  color: var(--taupe);
+  margin-bottom: 24px;
+}
+
+.price-card.featured .price-period { color: rgba(248,245,242,0.45); }
+
+.price-divider {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 20px;
+}
+
+.price-card.featured .price-divider { background: rgba(248,245,242,0.1); }
+
+.price-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.price-features li {
+  font-size: 13px;
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 300;
+}
+
+.price-card.featured .price-features li { color: rgba(248,245,242,0.65); }
+
+.price-check {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--linen-deep);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.price-card.featured .price-check {
+  background: rgba(248,245,242,0.1);
+  border-color: rgba(248,245,242,0.15);
+}
+
+.price-check::after {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--taupe);
+}
+
+.price-card.featured .price-check::after { background: rgba(248,245,242,0.6); }
+
+.btn-price {
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--charcoal);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-price:hover { background: var(--linen-deep); border-color: var(--taupe); }
+
+.price-card.featured .btn-price {
+  background: var(--linen);
+  color: var(--charcoal);
+  border-color: var(--linen);
+}
+
+.price-card.featured .btn-price:hover { background: rgba(248,245,242,0.85); }
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--charcoal);
+  padding: 100px 48px;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: clamp(32px, 5vw, 58px);
+  letter-spacing: -0.03em;
+  color: var(--linen);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.final-cta h2 strong { font-weight: 600; }
+
+.final-cta p {
+  font-size: 16px;
+  color: rgba(248,245,242,0.55);
+  max-width: 440px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.final-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.trust-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-top: 48px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(248,245,242,0.1);
+}
+
+.trust-item {
+  font-size: 12px;
+  color: rgba(248,245,242,0.35);
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trust-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(248,245,242,0.2);
+  flex-shrink: 0;
+}
+
+/* FOOTER */
+footer {
+  background: var(--linen);
+  border-top: 1px solid var(--border);
+  padding: 40px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-brand {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--charcoal);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-brand span { color: var(--taupe); }
+
+.footer-note {
+  font-size: 12px;
+  color: var(--taupe);
+  font-weight: 300;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow { animation: fadeUp 0.5s ease both; animation-delay: 0.1s; opacity: 0; }
+.hero h1      { animation: fadeUp 0.6s ease both; animation-delay: 0.2s; opacity: 0; }
+.hero-sub     { animation: fadeUp 0.6s ease both; animation-delay: 0.35s; opacity: 0; }
+.hero-actions { animation: fadeUp 0.6s ease both; animation-delay: 0.45s; opacity: 0; }
+.product-preview { animation: fadeUp 0.7s ease both; animation-delay: 0.55s; opacity: 0; }
+
+@media (max-width: 768px) {
+  nav { padding: 0 24px; }
+  nav .nav-links { display: none; }
+  section { padding: 60px 24px; }
+  .hero { padding: 100px 24px 60px; }
+  .works-grid, .modules-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .bento-card.span-8, .bento-card.span-4, .bento-card.span-5, .bento-card.span-7, .bento-card.span-6 { grid-column: span 12; }
+  .metrics-row { grid-template-columns: repeat(2, 1fr); }
+  .dash { grid-template-columns: 1fr; }
+  .dash-sidebar { display: none; }
+}
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Lead Enrichment & Engagement Platform</div>
+  <h1>Your leads are ready.<br><strong>Your follow-up</strong><br>is <span class="taupe">not.</span></h1>
+  <p class="hero-sub">ProspectifAI qualifies, nurtures, and escalates leads across every channel — automatically. From ad click to booked meeting, without adding headcount.</p>
+  <div class="hero-actions">
+    <a href="https://prospectif.ai/contact-us" class="btn-hero">Start free trial</a>
+    <a href="#product" class="btn-hero-ghost">See how it works</a>
+  </div>
+
+  <!-- Product preview -->
+  <div class="product-preview">
+    <div class="preview-bar">
+      <div class="preview-dots">
+        <div class="preview-dot"></div>
+        <div class="preview-dot"></div>
+        <div class="preview-dot"></div>
+      </div>
+      <div class="preview-url">app.prospectifai.com / pipeline</div>
+    </div>
+    <div class="dash">
+      <div class="dash-sidebar">
+        <div class="dash-logo">
+          <div class="dash-logo-mark">P</div>
+          ProspectifAI
+        </div>
+        <div class="dash-nav-item active"><div class="dash-nav-dot"></div>Pipeline</div>
+        <div class="dash-nav-item"><div class="dash-nav-dot"></div>Sprints</div>
+        <div class="dash-nav-item"><div class="dash-nav-dot"></div>Sequences</div>
+        <div class="dash-nav-item"><div class="dash-nav-dot"></div>Intelligence</div>
+        <div class="dash-nav-item"><div class="dash-nav-dot"></div>Channels</div>
+        <div class="dash-nav-item"><div class="dash-nav-dot"></div>Settings</div>
+      </div>
+      <div class="dash-main">
+        <div class="dash-header">
+          <div class="dash-title">Active Pipeline — Q2 2026</div>
+          <div class="dash-tag">Webinar Sprint: Live</div>
+        </div>
+        <div class="metrics-row">
+          <div class="metric-card">
+            <div class="metric-val">1,440</div>
+            <div class="metric-label">Engaged attendees</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val">847</div>
+            <div class="metric-label">In active nurture</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val green">91</div>
+            <div class="metric-label">Meetings booked</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val">6.3<span style="font-size:12px;color:var(--taupe);">%</span></div>
+            <div class="metric-label">Conversion rate</div>
+          </div>
+        </div>
+        <div class="chart-area">
+          <div class="chart-label">Meeting conversions — last 12 weeks</div>
+          <div class="chart-bars">
+            <div class="chart-bar" style="height: 30%;"></div>
+            <div class="chart-bar" style="height: 38%;"></div>
+            <div class="chart-bar mid" style="height: 42%;"></div>
+            <div class="chart-bar mid" style="height: 50%;"></div>
+            <div class="chart-bar mid" style="height: 45%;"></div>
+            <div class="chart-bar lit" style="height: 62%;"></div>
+            <div class="chart-bar lit" style="height: 70%;"></div>
+            <div class="chart-bar lit" style="height: 75%;"></div>
+            <div class="chart-bar lit" style="height: 80%;"></div>
+            <div class="chart-bar lit" style="height: 88%;"></div>
+            <div class="chart-bar lit" style="height: 92%;"></div>
+            <div class="chart-bar lit" style="height: 100%;"></div>
+          </div>
+        </div>
+        <table class="lead-table">
+          <thead>
+            <tr>
+              <th>Lead</th>
+              <th>Company</th>
+              <th>Source</th>
+              <th>Pace Score</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sarah M.</td>
+              <td>Meridian Ops</td>
+              <td>Webinar Sprint</td>
+              <td><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:88%"></div></div> <span style="font-size:10px;color:var(--taupe);">88</span></div></td>
+              <td><span class="status-pill hot">Escalated</span></td>
+            </tr>
+            <tr>
+              <td>James R.</td>
+              <td>Bluefort Inc.</td>
+              <td>Social Sprint</td>
+              <td><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:64%"></div></div> <span style="font-size:10px;color:var(--taupe);">64</span></div></td>
+              <td><span class="status-pill nurture">Nurture</span></td>
+            </tr>
+            <tr>
+              <td>Priya K.</td>
+              <td>Vaultline</td>
+              <td>Revival Sprint</td>
+              <td><div class="score-bar-wrap"><div class="score-bar-track"><div class="score-bar-fill" style="width:41%"></div></div> <span style="font-size:10px;color:var(--taupe);">41</span></div></td>
+              <td><span class="status-pill new">Re-engaged</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="product" style="background: var(--white);">
+  <div class="section-inner">
+    <div class="eyebrow">How it works</div>
+    <h2 class="section-title">Built for the gap between<br><strong>marketing and revenue.</strong></h2>
+    <p class="section-sub">Most teams generate demand they never fully work. ProspectifAI runs the follow-up infrastructure so your reps only touch leads worth their time.</p>
+    <div class="works-grid">
+      <div class="works-cell">
+        <div class="works-num">01</div>
+        <h3>Enrich & qualify</h3>
+        <p>Every inbound lead is enriched with firmographic data, intent signals, and behavioral context. Pace Score assigns a readiness rank in real time.</p>
+      </div>
+      <div class="works-cell">
+        <div class="works-num">02</div>
+        <h3>Engage across channels</h3>
+        <p>Structured sequences run across email, SMS, WhatsApp, and social — personalized by role and context, without manual SDR effort.</p>
+      </div>
+      <div class="works-cell">
+        <div class="works-num">03</div>
+        <h3>Escalate with precision</h3>
+        <p>Only sales-qualified signals reach your reps. Everyone else stays in the arc until ready — or surfaces structured intelligence for your team.</p>
+      </div>
+    </div>
+
+    <!-- Bento grid -->
+    <div class="bento">
+      <div class="bento-card span-8">
+        <div class="bento-eyebrow">Omnichannel reach</div>
+        <h3>One platform.<br>Every channel they're on.</h3>
+        <p>ProspectifAI connects to email, SMS, WhatsApp, and social in a single engagement layer. No duct tape. No switching between tools.</p>
+        <div class="channel-pills">
+          <div class="channel-pill">Email</div>
+          <div class="channel-pill">SMS</div>
+          <div class="channel-pill">WhatsApp</div>
+          <div class="channel-pill">Facebook</div>
+          <div class="channel-pill">Instagram</div>
+        </div>
+      </div>
+      <div class="bento-card span-4 dark">
+        <div class="bento-eyebrow">Pace Score</div>
+        <div class="bento-stat">8–<span>15×</span></div>
+        <h3 style="font-size:15px; margin-bottom:8px;">Touchpoints, automated.</h3>
+        <p>B2B buyers need 8–15 touches. ProspectifAI delivers them without a single manual step.</p>
+      </div>
+      <div class="bento-card span-5">
+        <div class="bento-eyebrow">Market intelligence</div>
+        <h3>Non-converting leads still pay you back.</h3>
+        <p>Objection trends, competitive mentions, and buyer timing signals — automatically structured from every engagement arc.</p>
+      </div>
+      <div class="bento-card span-7" style="background: var(--linen);">
+        <div class="bento-eyebrow">Implementation</div>
+        <h3>Live in 2–4 weeks.<br>No CRM replacement.</h3>
+        <p>ProspectifAI sits alongside your existing stack. No rip-and-replace, no additional headcount, no disruption to the way your team already works.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPRINT MODULES -->
+<section id="sprints">
+  <div class="section-inner">
+    <div class="eyebrow">Sprint modules</div>
+    <h2 class="section-title">Core platform plus<br><strong>purpose-built Sprints.</strong></h2>
+    <p class="section-sub">Start with the core engagement engine. Add Sprint modules for specific use cases without changing your workflow.</p>
+    <div class="modules-grid">
+      <div class="module-card">
+        <div class="module-tag">Sprint Module</div>
+        <h3>Webinar Sprint</h3>
+        <p>Deploy a structured 30–60 day nurture arc the moment your event ends. Convert a higher share of attendees who already raised their hand.</p>
+        <ul class="module-features">
+          <li>Post-event sequence automation</li>
+          <li>Role-aware personalization at scale</li>
+          <li>Structured objection capture</li>
+          <li>Competitive mention tracking</li>
+          <li>Meeting conversion analytics</li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-tag">Sprint Module</div>
+        <h3>Social Sprint</h3>
+        <p>Turn ad-driven social engagement into structured pipeline. Qualify followers, commenters, and DM responders before they go cold.</p>
+        <ul class="module-features">
+          <li>Social engagement capture</li>
+          <li>Cross-platform lead enrichment</li>
+          <li>Automated qualification sequences</li>
+          <li>Intent signal scoring</li>
+          <li>Sales-ready escalation triggers</li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <div class="module-tag">Sprint Module</div>
+        <h3>Revival Sprint</h3>
+        <p>Dead leads aren't dead — they're dormant. Revival Sprint re-engages lapsed contacts with precision timing and fresh context.</p>
+        <ul class="module-features">
+          <li>Dormancy detection & segmentation</li>
+          <li>Re-engagement sequence engine</li>
+          <li>Timing signal monitoring</li>
+          <li>Competitive displacement triggers</li>
+          <li>Win-back conversion tracking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="background: var(--white);">
+  <div class="section-inner">
+    <div class="eyebrow">Pricing</div>
+    <h2 class="section-title">Simple, module-based<br><strong>pricing.</strong></h2>
+    <p class="section-sub">Start with the core platform. Add Sprints when you're ready. No hidden fees, no per-seat surprises.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-num"><sup>$</sup>490</div>
+        <div class="price-period">per month, billed annually</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li><div class="price-check"></div>Core enrichment engine</li>
+          <li><div class="price-check"></div>Email & SMS sequences</li>
+          <li><div class="price-check"></div>Pace Score lead ranking</li>
+          <li><div class="price-check"></div>Up to 2,500 active leads</li>
+          <li><div class="price-check"></div>CRM integration</li>
+        </ul>
+        <button class="btn-price">Get started</button>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tier">Pro</div>
+        <div class="price-num"><sup>$</sup>990</div>
+        <div class="price-period">per month, billed annually</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li><div class="price-check"></div>Everything in Starter</li>
+          <li><div class="price-check"></div>WhatsApp & social channels</li>
+          <li><div class="price-check"></div>One Sprint module included</li>
+          <li><div class="price-check"></div>Up to 10,000 active leads</li>
+          <li><div class="price-check"></div>Intelligence dashboard</li>
+          <li><div class="price-check"></div>Priority support</li>
+        </ul>
+        <button class="btn-price">Start free trial</button>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Elite</div>
+        <div class="price-num" style="font-size:28px; padding-top:7px;">Custom</div>
+        <div class="price-period">volume & Sprint bundles available</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li><div class="price-check"></div>Everything in Pro</li>
+          <li><div class="price-check"></div>All three Sprint modules</li>
+          <li><div class="price-check"></div>Unlimited active leads</li>
+          <li><div class="price-check"></div>Custom sequence logic</li>
+          <li><div class="price-check"></div>Dedicated onboarding</li>
+          <li><div class="price-check"></div>SLA & white-glove support</li>
+        </ul>
+        <button class="btn-price">Talk to sales</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <h2>The pipeline is already there.<br><strong>Start working it.</strong></h2>
+  <p>Set up in 2–4 weeks. No CRM replacement, no new headcount. Just more revenue from demand you're already generating.</p>
+  <div class="final-actions">
+    <a href="https://prospectif.ai/contact-us" class="btn-hero">Start free trial</a>
+    <a href="https://prospectif.ai/contact-us" class="btn-hero-ghost" style="color: rgba(248,245,242,0.55);">Book a demo</a>
+  </div>
+  <div class="trust-row">
+    <div class="trust-item"><div class="trust-dot"></div>No credit card required</div>
+    <div class="trust-item"><div class="trust-dot"></div>2–4 week implementation</div>
+    <div class="trust-item"><div class="trust-dot"></div>No CRM replacement</div>
+    <div class="trust-item"><div class="trust-dot"></div>Cancel anytime</div>
+  </div>
+</div>

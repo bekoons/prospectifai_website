@@ -1,0 +1,1223 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --linen: #F8F5F2;
+  --charcoal: #2D2926;
+  --taupe: #8B7E74;
+  --border: #E5E1DD;
+  --slate: #6B7280;
+  --white: #ffffff;
+  --charcoal-soft: #3d3632;
+  --linen-deep: #ede9e4;
+  --green-soft: #e8f0eb;
+  --green-mid: #4a7c59;
+  --amber-light: #fef3e2;
+  --amber: #c8730a;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--linen);
+  color: var(--charcoal);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* LAYOUT */
+.page { max-width: 1000px; margin: 0 auto; padding: 0 48px; }
+
+section { padding: 80px 0; }
+
+.eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700; font-size: 10px;
+  letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--taupe); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+
+.eyebrow::before, .eyebrow::after {
+  content: ''; width: 32px; height: 1px;
+  background: var(--border);
+}
+
+h1.page-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: clamp(36px, 5vw, 58px);
+  letter-spacing: -0.03em;
+  color: var(--charcoal);
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+
+h1.page-title strong { font-weight: 600; }
+
+.page-sub {
+  font-size: 17px; color: var(--slate);
+  font-weight: 300; line-height: 1.65;
+  max-width: 480px; margin-bottom: 56px;
+}
+
+/* BILLING TOGGLE */
+.billing-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px;
+  margin-bottom: 48px;
+}
+
+.toggle-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 8px 20px; border-radius: 4px;
+  border: none; cursor: pointer;
+  background: transparent; color: var(--taupe);
+  transition: all 0.15s;
+  display: flex; align-items: center; gap: 8px;
+}
+
+.toggle-btn.active {
+  background: var(--charcoal);
+  color: var(--linen);
+}
+
+.save-pill {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--green-soft);
+  color: var(--green-mid);
+  border: 1px solid #c5dbc9;
+  padding: 2px 7px; border-radius: 100px;
+}
+
+/* PRICING GRID */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.price-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s;
+}
+
+.price-card:hover { border-color: var(--taupe); }
+
+.price-card.featured {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+}
+
+.price-card.featured:hover { border-color: var(--charcoal-soft); }
+
+.price-tier {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700; font-size: 10px;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--taupe); margin-bottom: 6px;
+}
+
+.price-card.featured .price-tier { color: rgba(248,245,242,0.4); }
+
+.price-tagline {
+  font-size: 12px; color: var(--slate);
+  font-weight: 300; margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.price-card.featured .price-tagline { color: rgba(248,245,242,0.45); }
+
+.price-num {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300; font-size: 48px;
+  letter-spacing: -0.04em; color: var(--charcoal);
+  line-height: 1; display: flex;
+  align-items: flex-start; gap: 3px;
+  margin-bottom: 4px;
+}
+
+.price-card.featured .price-num { color: var(--linen); }
+
+.price-num sup {
+  font-size: 20px; margin-top: 8px; font-weight: 400;
+}
+
+.price-num .price-cents {
+  font-size: 20px; align-self: flex-end;
+  margin-bottom: 6px; font-weight: 300;
+}
+
+.price-period {
+  font-size: 12px; color: var(--taupe);
+  margin-bottom: 6px;
+}
+
+.price-card.featured .price-period { color: rgba(248,245,242,0.4); }
+
+.price-annual-note {
+  font-size: 11px; color: var(--slate);
+  font-weight: 300; margin-bottom: 24px;
+  min-height: 16px;
+}
+
+.price-card.featured .price-annual-note { color: rgba(248,245,242,0.35); }
+
+.price-divider {
+  height: 1px; background: var(--border); margin-bottom: 20px;
+}
+
+.price-card.featured .price-divider { background: rgba(248,245,242,0.1); }
+
+.price-lead-limit {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600; font-size: 13px;
+  color: var(--charcoal); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+
+.price-card.featured .price-lead-limit { color: var(--linen); }
+
+.price-lead-limit::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%; background: var(--taupe);
+  flex-shrink: 0;
+}
+
+.price-card.featured .price-lead-limit::before { background: rgba(248,245,242,0.5); }
+
+.price-features {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 28px; flex: 1;
+}
+
+.price-features li {
+  font-size: 13px; color: var(--slate);
+  display: flex; align-items: flex-start; gap: 10px;
+  font-weight: 300; line-height: 1.4;
+}
+
+.price-card.featured .price-features li { color: rgba(248,245,242,0.6); }
+
+.price-check {
+  width: 15px; height: 15px; border-radius: 50%;
+  background: var(--linen-deep);
+  border: 1px solid var(--border);
+  flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.price-card.featured .price-check {
+  background: rgba(248,245,242,0.08);
+  border-color: rgba(248,245,242,0.15);
+}
+
+.price-check::after {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%; background: var(--taupe);
+}
+
+.price-card.featured .price-check::after { background: rgba(248,245,242,0.5); }
+
+.price-features li.inherited {
+  color: var(--taupe); font-style: italic;
+}
+
+.price-card.featured .price-features li.inherited { color: rgba(248,245,242,0.35); }
+
+.btn-price {
+  width: 100%; padding: 13px;
+  border-radius: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--charcoal);
+  transition: all 0.15s; margin-top: auto;
+}
+
+.btn-price:hover { background: var(--linen-deep); border-color: var(--taupe); }
+
+.price-card.featured .btn-price {
+  background: var(--linen); color: var(--charcoal);
+  border-color: var(--linen);
+}
+
+.price-card.featured .btn-price:hover { background: rgba(248,245,242,0.88); }
+
+/* SPRINT ADD-ONS */
+.addons-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 80px;
+}
+
+.addon-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.addon-icon {
+  width: 36px; height: 36px;
+  background: var(--linen-deep);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700; font-size: 11px;
+  color: var(--taupe);
+  letter-spacing: 0.05em;
+}
+
+.addon-body h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600; font-size: 14px;
+  letter-spacing: -0.02em; color: var(--charcoal);
+  margin-bottom: 4px;
+}
+
+.addon-body p {
+  font-size: 12px; color: var(--slate);
+  font-weight: 300; line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.addon-price {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600; font-size: 13px;
+  color: var(--charcoal);
+}
+
+.addon-price span {
+  font-weight: 300; font-size: 11px; color: var(--taupe);
+}
+
+/* BUILD VS BUY */
+.bvb-section {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+.bvb-header {
+  padding: 40px 44px 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.bvb-header .eyebrow { justify-content: flex-start; }
+.bvb-header .eyebrow::before { display: none; }
+
+.bvb-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300; font-size: 32px;
+  letter-spacing: -0.03em; color: var(--charcoal);
+  line-height: 1.1; margin-bottom: 10px;
+}
+
+.bvb-header h2 strong { font-weight: 600; }
+
+.bvb-header p {
+  font-size: 15px; color: var(--slate);
+  font-weight: 300; line-height: 1.65;
+  max-width: 560px;
+}
+
+/* Tab system */
+.bvb-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 0 44px;
+  background: var(--linen);
+}
+
+.bvb-tab {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--taupe);
+  padding: 14px 20px;
+  border: none; background: transparent;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.bvb-tab.active {
+  color: var(--charcoal);
+  border-bottom-color: var(--charcoal);
+}
+
+.bvb-tab:hover { color: var(--charcoal-soft); }
+
+.bvb-panels { padding: 0; }
+
+.bvb-panel { display: none; }
+.bvb-panel.active { display: block; }
+
+.bvb-panel-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.bvb-col {
+  padding: 36px 44px;
+}
+
+.bvb-col:first-child {
+  border-right: 1px solid var(--border);
+}
+
+.bvb-col-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.bvb-col-label.build { color: var(--taupe); }
+.bvb-col-label.buy { color: var(--green-mid); }
+
+.bvb-cost-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 20px;
+}
+
+.bvb-cost-item:last-child { border-bottom: none; }
+
+.bvb-cost-label {
+  font-size: 13px; color: var(--charcoal);
+  font-weight: 400; line-height: 1.4;
+  flex: 1;
+}
+
+.bvb-cost-label small {
+  display: block;
+  font-size: 11px; color: var(--slate);
+  font-weight: 300; margin-top: 2px;
+}
+
+.bvb-cost-val {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600; font-size: 13px;
+  color: var(--charcoal);
+  text-align: right; white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.bvb-cost-val.red { color: #a32d2d; }
+.bvb-cost-val.green { color: var(--green-mid); }
+.bvb-cost-val.taupe { color: var(--taupe); font-weight: 300; font-style: italic; }
+
+.bvb-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 16px 0 0;
+  margin-top: 4px;
+}
+
+.bvb-total-label {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700; font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--charcoal);
+}
+
+.bvb-total-val {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300; font-size: 32px;
+  letter-spacing: -0.03em; color: var(--charcoal);
+}
+
+.bvb-total-val.red { color: #a32d2d; }
+.bvb-total-val.green { color: var(--green-mid); }
+
+.bvb-caveat {
+  padding: 20px 44px;
+  background: var(--linen);
+  border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--slate);
+  font-weight: 300; font-style: italic;
+  line-height: 1.6;
+}
+
+/* ROI CALC */
+.roi-section {
+  background: var(--charcoal);
+  border-radius: 8px;
+  padding: 48px 44px;
+  margin-bottom: 80px;
+}
+
+.roi-section .eyebrow {
+  color: rgba(248,245,242,0.4);
+  justify-content: flex-start;
+}
+
+.roi-section .eyebrow::before { display: none; }
+.roi-section .eyebrow::after { background: rgba(248,245,242,0.1); }
+
+.roi-section h2 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300; font-size: 30px;
+  letter-spacing: -0.03em; color: var(--linen);
+  margin-bottom: 8px; line-height: 1.1;
+}
+
+.roi-section h2 strong { font-weight: 600; }
+
+.roi-section > p {
+  font-size: 14px; color: rgba(248,245,242,0.5);
+  font-weight: 300; margin-bottom: 36px;
+}
+
+.roi-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.roi-input-group label {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(248,245,242,0.4);
+  margin-bottom: 8px;
+}
+
+.roi-input {
+  width: 100%; padding: 10px 14px;
+  background: rgba(248,245,242,0.06);
+  border: 1px solid rgba(248,245,242,0.12);
+  border-radius: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px; font-weight: 500;
+  color: var(--linen);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.roi-input:focus { border-color: rgba(248,245,242,0.3); }
+
+.roi-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(248,245,242,0.1);
+}
+
+.roi-result-card {
+  background: rgba(248,245,242,0.05);
+  border: 1px solid rgba(248,245,242,0.08);
+  border-radius: 6px;
+  padding: 20px 22px;
+}
+
+.roi-result-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(248,245,242,0.35);
+  margin-bottom: 10px;
+}
+
+.roi-result-val {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300; font-size: 32px;
+  letter-spacing: -0.03em; color: var(--linen);
+  line-height: 1; margin-bottom: 4px;
+}
+
+.roi-result-val.accent { color: #5dca9f; }
+
+.roi-result-note {
+  font-size: 11px; color: rgba(248,245,242,0.35);
+  font-weight: 300; line-height: 1.4;
+}
+
+/* FAQ */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
+  margin-bottom: 80px;
+}
+
+.faq-item {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-q {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600; font-size: 15px;
+  letter-spacing: -0.02em; color: var(--charcoal);
+  margin-bottom: 10px; line-height: 1.3;
+}
+
+.faq-a {
+  font-size: 13px; color: var(--slate);
+  font-weight: 300; line-height: 1.7;
+}
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--charcoal);
+  padding: 80px 48px;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300; font-size: clamp(28px, 4vw, 46px);
+  letter-spacing: -0.03em; color: var(--linen);
+  margin-bottom: 16px; line-height: 1.1;
+}
+
+.final-cta h2 strong { font-weight: 600; }
+
+.final-cta p {
+  font-size: 15px; color: rgba(248,245,242,0.5);
+  max-width: 420px; margin: 0 auto 36px;
+  font-weight: 300; line-height: 1.65;
+}
+
+.final-actions { display: flex; justify-content: center; align-items: center; gap: 14px; }
+
+.btn-hero {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500; font-size: 13px;
+  letter-spacing: 0.01em;
+  color: var(--linen); background: transparent;
+  border: 1px solid rgba(248,245,242,0.25);
+  padding: 13px 28px; border-radius: 4px;
+  cursor: pointer; text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.btn-hero:hover { border-color: rgba(248,245,242,0.5); background: rgba(248,245,242,0.05); }
+
+.btn-hero.primary {
+  background: var(--linen); color: var(--charcoal);
+  border-color: var(--linen);
+}
+
+.btn-hero.primary:hover { background: rgba(248,245,242,0.88); }
+
+.trust-row {
+  display: flex; justify-content: center; align-items: center;
+  gap: 32px; margin-top: 36px; padding-top: 36px;
+  border-top: 1px solid rgba(248,245,242,0.08);
+}
+
+.trust-item {
+  font-size: 12px; color: rgba(248,245,242,0.3);
+  font-weight: 300; display: flex; align-items: center; gap: 8px;
+}
+
+.trust-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: rgba(248,245,242,0.2); flex-shrink: 0;
+}
+
+.pricing-
+
+
+.pricing-
+
+
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-animate { opacity: 1; }
+
+
+
+
+</style>
+
+<!-- HERO -->
+<div style="padding-top: 60px;">
+  <section class="sticky-nav-spacer" style="padding: 80px 0 56px;">
+    <div class="page" style="text-align: center;">
+      <div class="eyebrow" style="justify-content: center;">Pricing</div>
+      <h1 class="page-title" style="max-width: 640px; margin: 0 auto 16px;">Simple pricing.<br><strong>Measurable return.</strong></h1>
+      <p class="page-sub" style="margin: 0 auto 40px;">Start with the core platform. Add Sprint modules when you're ready. Priced against the pipeline value delivered — not the seats using it.</p>
+
+      <div style="display: flex; justify-content: center;">
+        <div class="billing-toggle">
+          <button class="toggle-btn active" id="btn-annual" onclick="setBilling('annual')">Annual <span class="save-pill">Save 20%</span></button>
+          <button class="toggle-btn" id="btn-monthly" onclick="setBilling('monthly')">Monthly</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING CARDS -->
+  <section style="padding: 0 0 16px;">
+    <div class="page">
+      <div class="pricing-grid">
+
+        <!-- Starter -->
+        <div class="price-card">
+          <div class="price-tier">Starter</div>
+          <div class="price-tagline">For teams running 6–8 webinars a year getting started with structured follow-up.</div>
+          <div class="price-num"><sup>$</sup><span class="price-main">799</span></div>
+          <div class="price-period">per month</div>
+          <div class="price-annual-note annual-note">Billed annually — $9,588/yr</div>
+          <div class="price-divider"></div>
+          <div class="price-lead-limit">Up to 2,000 active leads/mo</div>
+          <ul class="price-features">
+            <li><div class="price-check"></div>Core enrichment engine</li>
+            <li><div class="price-check"></div>Email & SMS sequences</li>
+            <li><div class="price-check"></div>Pace Score lead ranking</li>
+            <li><div class="price-check"></div>Sales escalation triggers</li>
+            <li><div class="price-check"></div>HubSpot / Salesforce integration</li>
+            <li><div class="price-check"></div>Standard analytics dashboard</li>
+            <li><div class="price-check"></div>Email support</li>
+          </ul>
+          <button class="btn-price">Start free trial</button>
+        </div>
+
+        <!-- Pro -->
+        <div class="price-card featured">
+          <div class="price-tier">Pro</div>
+          <div class="price-tagline">For active webinar programs ready to close the gap between attendance and pipeline.</div>
+          <div class="price-num"><sup>$</sup><span class="price-main">1,599</span></div>
+          <div class="price-period">per month</div>
+          <div class="price-annual-note annual-note">Billed annually — $19,188/yr</div>
+          <div class="price-divider"></div>
+          <div class="price-lead-limit">Up to 8,000 active leads/mo</div>
+          <ul class="price-features">
+            <li><div class="price-check"></div>Everything in Starter</li>
+            <li><div class="price-check"></div>WhatsApp & social channels</li>
+            <li><div class="price-check"></div><strong style="font-weight:500;">One Sprint module included</strong></li>
+            <li><div class="price-check"></div>Intelligence dashboard</li>
+            <li><div class="price-check"></div>Objection trend capture</li>
+            <li><div class="price-check"></div>Competitive mention tracking</li>
+            <li><div class="price-check"></div>Priority support + onboarding</li>
+          </ul>
+          <button class="btn-price">Start free trial</button>
+        </div>
+
+        <!-- Elite -->
+        <div class="price-card">
+          <div class="price-tier">Elite</div>
+          <div class="price-tagline">For high-volume programs that need all three Sprints and custom sequence logic.</div>
+          <div class="price-num" style="font-size: 32px; padding-top: 10px; align-items: center;">Custom</div>
+          <div class="price-period">volume-based, billed annually</div>
+          <div class="price-annual-note">&nbsp;</div>
+          <div class="price-divider"></div>
+          <div class="price-lead-limit">Unlimited active leads</div>
+          <ul class="price-features">
+            <li><div class="price-check"></div>Everything in Pro</li>
+            <li><div class="price-check"></div><strong style="font-weight:500;">All three Sprint modules</strong></li>
+            <li><div class="price-check"></div>Custom sequence logic</li>
+            <li><div class="price-check"></div>Multi-team workspaces</li>
+            <li><div class="price-check"></div>Dedicated onboarding engineer</li>
+            <li><div class="price-check"></div>SLA + white-glove support</li>
+            <li><div class="price-check"></div>Quarterly strategy reviews</li>
+          </ul>
+          <button class="btn-price">Talk to sales</button>
+        </div>
+
+      </div>
+
+      <!-- Sprint Add-ons -->
+      <p style="font-size: 12px; color: var(--taupe); text-align: center; margin: 20px 0 16px; font-weight: 300; letter-spacing: 0.02em;">Sprint modules can be added to any plan</p>
+      <div class="addons-row">
+        <div class="addon-card">
+          <div class="addon-icon">WS</div>
+          <div class="addon-body">
+            <h4>Webinar Sprint</h4>
+            <p>30–60 day structured nurture arc from event close to booked meeting.</p>
+            <div class="addon-price">$499<span>/mo — or included in Pro+</span></div>
+          </div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-icon">SS</div>
+          <div class="addon-body">
+            <h4>Social Sprint</h4>
+            <p>Qualify and convert social engagement into structured pipeline.</p>
+            <div class="addon-price">$499<span>/mo — or included in Pro+</span></div>
+          </div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-icon">RS</div>
+          <div class="addon-body">
+            <h4>Revival Sprint</h4>
+            <p>Re-engage dormant leads with precision timing and fresh context.</p>
+            <div class="addon-price">$499<span>/mo — or included in Pro+</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI CALCULATOR -->
+  <section style="padding: 0 0 0;">
+    <div class="page">
+      <div class="roi-section">
+        <div class="eyebrow">Pipeline calculator</div>
+        <h2>What does <strong>one extra meeting</strong><br>cost you to not have?</h2>
+        <p>Adjust your numbers to see the pipeline impact of a 2–4% conversion lift.</p>
+        <div class="roi-inputs">
+          <div class="roi-input-group">
+            <label>Webinars / year</label>
+            <input class="roi-input" type="number" id="roi-webinars" value="8" min="1" oninput="calcROI()">
+          </div>
+          <div class="roi-input-group">
+            <label>Registrants / event</label>
+            <input class="roi-input" type="number" id="roi-registrants" value="250" min="1" oninput="calcROI()">
+          </div>
+          <div class="roi-input-group">
+            <label>Avg deal size ($)</label>
+            <input class="roi-input" type="number" id="roi-deal" value="18000" min="1" oninput="calcROI()">
+          </div>
+          <div class="roi-input-group">
+            <label>Close rate (%)</label>
+            <input class="roi-input" type="number" id="roi-close" value="20" min="1" max="100" oninput="calcROI()">
+          </div>
+        </div>
+        <div class="roi-results">
+          <div class="roi-result-card">
+            <div class="roi-result-label">Incremental meetings / yr</div>
+            <div class="roi-result-val accent" id="roi-meetings">—</div>
+            <div class="roi-result-note">At a 3% → 5–7% conversion lift on engaged attendees</div>
+          </div>
+          <div class="roi-result-card">
+            <div class="roi-result-label">Expected pipeline added</div>
+            <div class="roi-result-val accent" id="roi-pipeline">—</div>
+            <div class="roi-result-note">Incremental meetings × deal size</div>
+          </div>
+          <div class="roi-result-card">
+            <div class="roi-result-label">Expected closed revenue</div>
+            <div class="roi-result-val accent" id="roi-revenue">—</div>
+            <div class="roi-result-note">At your stated close rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILD VS BUY -->
+  <section style="padding: 80px 0 0;">
+    <div class="page">
+      <div class="bvb-section">
+        <div class="bvb-header">
+          <div class="eyebrow">Build vs. buy</div>
+          <h2>Thinking of <strong>building this in-house?</strong></h2>
+          <p>A fair question. Here's the honest cost breakdown — for teams already on HubSpot, Salesforce, or Outreach — versus what ProspectifAI costs in year one.</p>
+        </div>
+        <div class="bvb-tabs">
+          <button class="bvb-tab active" onclick="setTab('hubspot')">HubSpot</button>
+          <button class="bvb-tab" onclick="setTab('salesforce')">Salesforce</button>
+          <button class="bvb-tab" onclick="setTab('outreach')">Outreach / Salesloft</button>
+        </div>
+        <div class="bvb-panels">
+
+          <!-- HubSpot panel -->
+          <div class="bvb-panel active" id="panel-hubspot">
+            <div class="bvb-panel-inner">
+              <div class="bvb-col">
+                <div class="bvb-col-label build">Build it on HubSpot</div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">RevOps time to build v1
+                    <small>1–3 months @ $100k/yr fully loaded</small>
+                  </div>
+                  <div class="bvb-cost-val red">$8k–$25k</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">HubSpot Operations Hub upgrade
+                    <small>Required for advanced automation & data sync</small>
+                  </div>
+                  <div class="bvb-cost-val red">$7,200/yr</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">SMS / WhatsApp tooling
+                    <small>HubSpot doesn't handle this natively</small>
+                  </div>
+                  <div class="bvb-cost-val red">$2,400/yr</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Ongoing maintenance
+                    <small>API changes, broken sequences, QA per event</small>
+                  </div>
+                  <div class="bvb-cost-val red">~2 days/mo</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">What you don't get
+                    <small>Pace Score, objection capture, revival logic, competitive tracking</small>
+                  </div>
+                  <div class="bvb-cost-val taupe">Not available</div>
+                </div>
+                <div class="bvb-total">
+                  <div class="bvb-total-label">Year one cost</div>
+                  <div class="bvb-total-val red">$18k–$35k+</div>
+                </div>
+              </div>
+              <div class="bvb-col">
+                <div class="bvb-col-label buy">ProspectifAI Pro</div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Platform subscription
+                    <small>Full omnichannel engagement engine</small>
+                  </div>
+                  <div class="bvb-cost-val green">$19,188/yr</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Webinar Sprint module
+                    <small>Included in Pro plan</small>
+                  </div>
+                  <div class="bvb-cost-val green">Included</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Implementation
+                    <small>2–4 week guided onboarding</small>
+                  </div>
+                  <div class="bvb-cost-val green">Included</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Ongoing maintenance
+                    <small>We handle it. Always.</small>
+                  </div>
+                  <div class="bvb-cost-val green">$0</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Intelligence layer
+                    <small>Pace Score, objections, competitive signals, revival logic</small>
+                  </div>
+                  <div class="bvb-cost-val green">Included</div>
+                </div>
+                <div class="bvb-total">
+                  <div class="bvb-total-label">Year one cost</div>
+                  <div class="bvb-total-val green">$19,188</div>
+                </div>
+              </div>
+            </div>
+            <div class="bvb-caveat">HubSpot workflows handle basic email sequences well. What they don't handle is the intelligence layer — Pace Score, multi-channel orchestration, structured objection capture, and revival logic. That gap is where the meetings are.</div>
+          </div>
+
+          <!-- Salesforce panel -->
+          <div class="bvb-panel" id="panel-salesforce">
+            <div class="bvb-panel-inner">
+              <div class="bvb-col">
+                <div class="bvb-col-label build">Build it on Salesforce</div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">RevOps / admin time to build v1
+                    <small>Flow builder is technical and fragile — 2–3 months realistic</small>
+                  </div>
+                  <div class="bvb-cost-val red">$17k–$25k</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Third-party automation layer
+                    <small>Salesforce doesn't sequence natively — you'll need a tool on top</small>
+                  </div>
+                  <div class="bvb-cost-val red">$6k–$15k/yr</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">SMS / WhatsApp tooling
+                    <small>Additional vendor, additional integration</small>
+                  </div>
+                  <div class="bvb-cost-val red">$2,400/yr</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Ongoing maintenance
+                    <small>Salesforce builds require consistent admin attention</small>
+                  </div>
+                  <div class="bvb-cost-val red">~3 days/mo</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">What you don't get
+                    <small>Pace Score, objection capture, revival logic, competitive tracking</small>
+                  </div>
+                  <div class="bvb-cost-val taupe">Not available</div>
+                </div>
+                <div class="bvb-total">
+                  <div class="bvb-total-label">Year one cost</div>
+                  <div class="bvb-total-val red">$25k–$42k+</div>
+                </div>
+              </div>
+              <div class="bvb-col">
+                <div class="bvb-col-label buy">ProspectifAI Pro</div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Platform subscription
+                    <small>Full omnichannel engagement engine</small>
+                  </div>
+                  <div class="bvb-cost-val green">$19,188/yr</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Webinar Sprint module
+                    <small>Included in Pro plan</small>
+                  </div>
+                  <div class="bvb-cost-val green">Included</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Implementation
+                    <small>2–4 week guided onboarding</small>
+                  </div>
+                  <div class="bvb-cost-val green">Included</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Ongoing maintenance
+                    <small>We handle it. Always.</small>
+                  </div>
+                  <div class="bvb-cost-val green">$0</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Intelligence layer
+                    <small>Pace Score, objections, competitive signals, revival logic</small>
+                  </div>
+                  <div class="bvb-cost-val green">Included</div>
+                </div>
+                <div class="bvb-total">
+                  <div class="bvb-total-label">Year one cost</div>
+                  <div class="bvb-total-val green">$19,188</div>
+                </div>
+              </div>
+            </div>
+            <div class="bvb-caveat">Building on Salesforce means Flow builder — which is technical, brittle, and requires ongoing admin attention — or adding a third-party sequencing tool on top of it. That's the same buy decision, one layer removed, with more complexity.</div>
+          </div>
+
+          <!-- Outreach panel -->
+          <div class="bvb-panel" id="panel-outreach">
+            <div class="bvb-panel-inner">
+              <div class="bvb-col">
+                <div class="bvb-col-label build">Repurpose Outreach / Salesloft</div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">RevOps time to configure inbound sequences
+                    <small>These tools are built for outbound — retrofitting takes time</small>
+                  </div>
+                  <div class="bvb-cost-val red">$8k–$17k</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">SDR time to manually qualify attendees
+                    <small>Outreach has no inbound intent scoring layer</small>
+                  </div>
+                  <div class="bvb-cost-val red">~4 hrs/event</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">WhatsApp / SMS gap
+                    <small>Not natively supported — another integration required</small>
+                  </div>
+                  <div class="bvb-cost-val red">$2,400/yr</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Ongoing sequence management
+                    <small>No auto-routing, no escalation logic — manual review per cohort</small>
+                  </div>
+                  <div class="bvb-cost-val red">Ongoing SDR time</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">What you don't get
+                    <small>Inbound intent scoring, objection capture, revival logic</small>
+                  </div>
+                  <div class="bvb-cost-val taupe">Not available</div>
+                </div>
+                <div class="bvb-total">
+                  <div class="bvb-total-label">Year one cost</div>
+                  <div class="bvb-total-val red">$10k–$20k+</div>
+                </div>
+              </div>
+              <div class="bvb-col">
+                <div class="bvb-col-label buy">ProspectifAI Pro</div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Platform subscription
+                    <small>Full omnichannel engagement engine</small>
+                  </div>
+                  <div class="bvb-cost-val green">$19,188/yr</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Webinar Sprint module
+                    <small>Included in Pro plan</small>
+                  </div>
+                  <div class="bvb-cost-val green">Included</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Works alongside Outreach
+                    <small>ProspectifAI handles inbound — Outreach handles outbound</small>
+                  </div>
+                  <div class="bvb-cost-val green">No conflict</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">SDR capacity freed
+                    <small>Reps only touch escalated, sales-ready leads</small>
+                  </div>
+                  <div class="bvb-cost-val green">Reclaimed</div>
+                </div>
+                <div class="bvb-cost-item">
+                  <div class="bvb-cost-label">Intelligence layer
+                    <small>Pace Score, objections, competitive signals, revival logic</small>
+                  </div>
+                  <div class="bvb-cost-val green">Included</div>
+                </div>
+                <div class="bvb-total">
+                  <div class="bvb-total-label">Year one cost</div>
+                  <div class="bvb-total-val green">$19,188</div>
+                </div>
+              </div>
+            </div>
+            <div class="bvb-caveat">Outreach and Salesloft are excellent outbound tools. They're not inbound nurture systems. Using them for webinar follow-up means retrofitting an outbound motion onto an inbound problem — and your SDRs pay the price in manual work every event cycle.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="page">
+      <div class="eyebrow" style="justify-content: center;">Common questions</div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q">How does lead volume pricing work?</div>
+          <div class="faq-a">Active leads are contacts currently in a nurture sequence or within 30 days of completing one. Leads that have converted, unsubscribed, or been archived don't count toward your limit.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What counts as a Sprint module?</div>
+          <div class="faq-a">Each Sprint is a pre-built engagement arc for a specific use case — Webinar, Social, or Revival. Pro includes one Sprint of your choice. Elite includes all three. Additional Sprints can be added to any plan for $499/mo each.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Does this replace my CRM?</div>
+          <div class="faq-a">No. ProspectifAI sits alongside your existing CRM — HubSpot, Salesforce, or Outreach. It enriches and nurtures leads, then escalates sales-qualified contacts back into your CRM for rep follow-up.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How long does implementation take?</div>
+          <div class="faq-a">Starter customers are typically live within 2 weeks. Pro and Elite customers get a dedicated onboarding engineer and are usually fully operational within 4 weeks of kickoff.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What happens if I exceed my lead limit?</div>
+          <div class="faq-a">We'll notify you before you hit the limit and offer a prorated overage rate or a plan upgrade. We never cut off active sequences mid-nurture.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is there a free trial?</div>
+          <div class="faq-a">Yes — Starter and Pro plans include a 14-day free trial with full feature access and up to 500 active leads. No credit card required to start.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I switch plans mid-year?</div>
+          <div class="faq-a">Upgrades take effect immediately and are prorated. Downgrades take effect at your next renewal date.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What messaging channels are included?</div>
+          <div class="faq-a">Starter includes email and SMS. Pro and Elite add WhatsApp and social (LinkedIn, Instagram). All channels are managed from a single sequence editor.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <h2>Start your free trial.<br><strong>First event's on us.</strong></h2>
+    <p>14 days, full access, no credit card. See what a structured follow-up system does to your next webinar's conversion rate.</p>
+    <div class="final-actions">
+      <a href="contact-us" class="btn-hero primary">Start free trial</a>
+      <a href="contact-us" class="btn-hero">Book a demo</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item"><div class="trust-dot"></div>No credit card required</div>
+      <div class="trust-item"><div class="trust-dot"></div>14-day full access trial</div>
+      <div class="trust-item"><div class="trust-dot"></div>Live in 2–4 weeks</div>
+      <div class="trust-item"><div class="trust-dot"></div>Cancel anytime</div>
+    </div>
+  </div>
+
+  
+
+</div>
+
+<script>
+// Billing toggle
+const prices = {
+  annual:  { starter: '799',   pro: '1,599' },
+  monthly: { starter: '999',   pro: '1,999' }
+};
+const annualNotes = {
+  annual:  { starter: 'Billed annually — $9,588/yr', pro: 'Billed annually — $19,188/yr' },
+  monthly: { starter: 'No long-term commitment',     pro: 'No long-term commitment' }
+};
+
+function setBilling(mode) {
+  document.getElementById('btn-annual').classList.toggle('active', mode === 'annual');
+  document.getElementById('btn-monthly').classList.toggle('active', mode === 'monthly');
+  document.querySelectorAll('.price-main')[0].textContent = prices[mode].starter;
+  document.querySelectorAll('.price-main')[1].textContent = prices[mode].pro;
+  document.querySelectorAll('.annual-note')[0].textContent = annualNotes[mode].starter;
+  document.querySelectorAll('.annual-note')[1].textContent = annualNotes[mode].pro;
+}
+
+// Build vs buy tabs
+function setTab(crm) {
+  document.querySelectorAll('.bvb-tab').forEach((t, i) => {
+    t.classList.toggle('active', ['hubspot','salesforce','outreach'][i] === crm);
+  });
+  document.querySelectorAll('.bvb-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + crm).classList.add('active');
+}
+
+// ROI calculator
+function fmt(n) {
+  if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+  if (n >= 1000) return '$' + Math.round(n/1000) + 'k';
+  return '$' + Math.round(n);
+}
+
+function calcROI() {
+  const webinars    = parseFloat(document.getElementById('roi-webinars').value) || 0;
+  const registrants = parseFloat(document.getElementById('roi-registrants').value) || 0;
+  const deal        = parseFloat(document.getElementById('roi-deal').value) || 0;
+  const close       = parseFloat(document.getElementById('roi-close').value) / 100 || 0;
+
+  const attendees  = webinars * registrants * 0.40;
+  const beforeMtgs = attendees * 0.03;
+  const afterMtgs  = attendees * 0.06;
+  const incrMtgs   = Math.round(afterMtgs - beforeMtgs);
+  const pipeline   = incrMtgs * deal;
+  const revenue    = pipeline * close;
+
+  document.getElementById('roi-meetings').textContent = incrMtgs > 0 ? '+' + incrMtgs : '—';
+  document.getElementById('roi-pipeline').textContent = pipeline > 0 ? fmt(pipeline) : '—';
+  document.getElementById('roi-revenue').textContent  = revenue > 0  ? fmt(revenue)  : '—';
+}
+
+calcROI();
+</script>
