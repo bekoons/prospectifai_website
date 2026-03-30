@@ -478,7 +478,7 @@
 
 .sprint-bridge-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-bottom: 40px;
 }
@@ -620,6 +620,7 @@
   .channel-grid { grid-template-columns: 1fr 1fr; }
   .plat-sprints { padding: 60px 24px; }
   .sprint-bridge-grid { grid-template-columns: 1fr; }
+  .plat-pace { grid-template-columns: 1fr !important; }
   .plat-cta { padding: 60px 24px; }
   .plat-cta-actions { flex-direction: column; }
 }
@@ -634,7 +635,7 @@
       <h1>The engine that turns<br>expressed intent into<br><strong>closed revenue.</strong></h1>
       <p class="plat-hero-sub">ProspectifAI enriches every inbound lead, engages them across the channels they're already on, qualifies them against your specific criteria, and escalates the ones that are ready. The ones that aren't become intelligence you can act on.</p>
       <div class="plat-hero-actions">
-        <a href="/contact-us" class="btn-primary">See it in action</a>
+        <a href="/demo" class="btn-primary">See it in action</a>
         <a href="/pricing" class="btn-ghost">View pricing</a>
       </div>
     </div>
@@ -673,7 +674,7 @@
         <div class="how-step">
           <div class="how-step-num">05</div>
           <div class="how-step-title">Learn</div>
-          <div class="how-step-desc">Non-converting leads surface structured intelligence — objection trends, timing signals, and competitive mentions — automatically.</div>
+          <div class="how-step-desc">Candor structures what non-converting leads signal — objection trends, competitive mentions, and timing patterns — automatically, across every Sprint.</div>
         </div>
       </div>
     </div>
@@ -728,6 +729,43 @@
     </div>
   </section>
 
+
+  <!-- CANDOR -->
+  <section style="background: var(--charcoal);">
+    <div class="plat-pace" style="grid-template-columns: 1fr 1fr;">
+      <div class="plat-pace-right" style="background: rgba(248,245,242,0.05); border-color: rgba(248,245,242,0.1);">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="pace-score-label" style="color: rgba(248,245,242,0.4);">Candor — Active Intelligence</div>
+          <div style="padding: 16px 0; border-bottom: 1px solid rgba(248,245,242,0.08);">
+            <div style="font-family: Outfit, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(248,245,242,0.35); margin-bottom: 6px;">Top objection this month</div>
+            <div style="font-size: 14px; color: var(--linen); font-weight: 400;">"We already have a process for this."</div>
+            <div style="font-size: 12px; color: rgba(248,245,242,0.4); margin-top: 4px;">Mentioned by 34% of non-converting leads</div>
+          </div>
+          <div style="padding: 16px 0; border-bottom: 1px solid rgba(248,245,242,0.08);">
+            <div style="font-family: Outfit, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(248,245,242,0.35); margin-bottom: 6px;">Competitor mentions</div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span style="font-size: 11px; background: rgba(248,245,242,0.08); border: 1px solid rgba(248,245,242,0.12); border-radius: 100px; padding: 4px 12px; color: rgba(248,245,242,0.6); font-family: Outfit, sans-serif; font-weight: 600; letter-spacing: 0.04em;">HubSpot &times;18</span>
+              <span style="font-size: 11px; background: rgba(248,245,242,0.08); border: 1px solid rgba(248,245,242,0.12); border-radius: 100px; padding: 4px 12px; color: rgba(248,245,242,0.6); font-family: Outfit, sans-serif; font-weight: 600; letter-spacing: 0.04em;">Outreach &times;11</span>
+              <span style="font-size: 11px; background: rgba(248,245,242,0.08); border: 1px solid rgba(248,245,242,0.12); border-radius: 100px; padding: 4px 12px; color: rgba(248,245,242,0.6); font-family: Outfit, sans-serif; font-weight: 600; letter-spacing: 0.04em;">Zapier &times;7</span>
+            </div>
+          </div>
+          <div style="padding: 16px 0;">
+            <div style="font-family: Outfit, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(248,245,242,0.35); margin-bottom: 6px;">Timing signal</div>
+            <div style="font-size: 14px; color: var(--linen); font-weight: 400;">42 leads re-entered buying signals this week</div>
+            <div style="font-size: 12px; color: rgba(248,245,242,0.4); margin-top: 4px;">Revival Sprint triggered on 38 of them</div>
+          </div>
+        </div>
+      </div>
+      <div class="plat-pace-left">
+        <div class="plat-eyebrow light">Candor</div>
+        <h2 style="color: var(--linen);">The leads that don't convert<br><strong>still tell you something.</strong></h2>
+        <p style="color: rgba(248,245,242,0.55);">Most platforms tell you what happened. Candor tells you why it happened. Every engagement arc — whether a lead converts or not — feeds structured intelligence back into the system.</p>
+        <p style="color: rgba(248,245,242,0.55);">Objection trends show you what's blocking pipeline. Competitive mentions show you who you're losing to. Timing signals show you when dormant leads are re-entering buying cycles.</p>
+        <p style="color: rgba(248,245,242,0.55);"><strong style="color: var(--linen);">Candor runs automatically across every Sprint.</strong> No manual tagging, no survey follow-up, no analyst needed. Just structured market intelligence from the engagement data you're already generating.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CHANNELS -->
   <section class="plat-channels">
     <div class="plat-channels-inner">
@@ -777,7 +815,7 @@
     <div class="plat-sprints">
       <div class="plat-eyebrow">Sprint modules</div>
       <h2>The platform deploys<br>through purpose-built<br><strong>Sprints.</strong></h2>
-      <p class="plat-sprints-sub">Sprint modules are pre-built engagement arcs for specific use cases. Start with the core platform. Add the Sprint that fits your pipeline — or all three.</p>
+      <p class="plat-sprints-sub">Sprint modules are pre-built engagement arcs for specific use cases. Start with the core platform. Add the Sprint that fits your pipeline — or all four.</p>
       <div class="sprint-bridge-grid">
         <a href="/sprints" class="sprint-bridge-card">
           <div class="sprint-bridge-tag">Sprint Module</div>
@@ -797,6 +835,12 @@
           <p>Dead leads aren't dead. They're dormant. Revival Sprint re-engages lapsed contacts with precision timing and fresh context.</p>
           <div class="sprint-bridge-link">Learn more</div>
         </a>
+        <a href="/sprints" class="sprint-bridge-card">
+          <div class="sprint-bridge-tag">Sprint Module</div>
+          <h3>Cart Sprint</h3>
+          <p>Someone added to cart and didn't complete the purchase. Cart Sprint re-engages them immediately with a structured qualification arc before the moment goes cold.</p>
+          <div class="sprint-bridge-link">Learn more</div>
+        </a>
       </div>
     </div>
   </section>
@@ -806,7 +850,7 @@
     <h2>See the platform<br><strong>working on your leads.</strong></h2>
     <p>Book a demo and we'll walk through exactly how ProspectifAI would work for your specific lead flow. No generic pitch.</p>
     <div class="plat-cta-actions">
-      <a href="/contact-us" class="btn-cta-primary">Book a demo</a>
+      <a href="/demo" class="btn-cta-primary">Book a demo</a>
       <a href="/pricing" class="btn-cta-ghost">View pricing</a>
     </div>
   </div>

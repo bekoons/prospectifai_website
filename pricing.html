@@ -660,15 +660,6 @@ h1.page-title strong { font-weight: 600; }
   background: rgba(248,245,242,0.2); flex-shrink: 0;
 }
 
-.pricing-
-
-
-.pricing-
-
-
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 .hero-animate { opacity: 1; }
 
 
@@ -743,7 +734,7 @@ h1.page-title strong { font-weight: 600; }
         <!-- Elite -->
         <div class="price-card">
           <div class="price-tier">Elite</div>
-          <div class="price-tagline">For high-volume programs that need all three Sprints and custom sequence logic.</div>
+          <div class="price-tagline">For high-volume programs that need all four Sprints and custom sequence logic.</div>
           <div class="price-num" style="font-size: 32px; padding-top: 10px; align-items: center;">Custom</div>
           <div class="price-period">volume-based, billed annually</div>
           <div class="price-annual-note">&nbsp;</div>
@@ -751,7 +742,7 @@ h1.page-title strong { font-weight: 600; }
           <div class="price-lead-limit">Unlimited active leads</div>
           <ul class="price-features">
             <li><div class="price-check"></div>Everything in Pro</li>
-            <li><div class="price-check"></div><strong style="font-weight:500;">All three Sprint modules</strong></li>
+            <li><div class="price-check"></div><strong style="font-weight:500;">All four Sprint modules</strong></li>
             <li><div class="price-check"></div>Custom sequence logic</li>
             <li><div class="price-check"></div>Multi-team workspaces</li>
             <li><div class="price-check"></div>Dedicated onboarding engineer</li>
@@ -765,7 +756,7 @@ h1.page-title strong { font-weight: 600; }
 
       <!-- Sprint Add-ons -->
       <p style="font-size: 12px; color: var(--taupe); text-align: center; margin: 20px 0 16px; font-weight: 300; letter-spacing: 0.02em;">Sprint modules can be added to any plan</p>
-      <div class="addons-row">
+      <div class="addons-row" style="grid-template-columns: repeat(2, 1fr);">
         <div class="addon-card">
           <div class="addon-icon">WS</div>
           <div class="addon-body">
@@ -787,6 +778,14 @@ h1.page-title strong { font-weight: 600; }
           <div class="addon-body">
             <h4>Revival Sprint</h4>
             <p>Re-engage dormant leads with precision timing and fresh context.</p>
+            <div class="addon-price">$499<span>/mo — or included in Pro+</span></div>
+          </div>
+        </div>
+        <div class="addon-card">
+          <div class="addon-icon">CS</div>
+          <div class="addon-body">
+            <h4>Cart Sprint</h4>
+            <p>Re-engage cart abandoners with a structured qualification arc before the moment goes cold.</p>
             <div class="addon-price">$499<span>/mo — or included in Pro+</span></div>
           </div>
         </div>
@@ -924,7 +923,7 @@ h1.page-title strong { font-weight: 600; }
                 </div>
                 <div class="bvb-cost-item">
                   <div class="bvb-cost-label">Intelligence layer
-                    <small>Pace Score, objections, competitive signals, revival logic</small>
+                    <small>Pace Score, Candor intelligence, competitive signals, revival logic</small>
                   </div>
                   <div class="bvb-cost-val green">Included</div>
                 </div>
@@ -1005,7 +1004,7 @@ h1.page-title strong { font-weight: 600; }
                 </div>
                 <div class="bvb-cost-item">
                   <div class="bvb-cost-label">Intelligence layer
-                    <small>Pace Score, objections, competitive signals, revival logic</small>
+                    <small>Pace Score, Candor intelligence, competitive signals, revival logic</small>
                   </div>
                   <div class="bvb-cost-val green">Included</div>
                 </div>
@@ -1086,7 +1085,7 @@ h1.page-title strong { font-weight: 600; }
                 </div>
                 <div class="bvb-cost-item">
                   <div class="bvb-cost-label">Intelligence layer
-                    <small>Pace Score, objections, competitive signals, revival logic</small>
+                    <small>Pace Score, Candor intelligence, competitive signals, revival logic</small>
                   </div>
                   <div class="bvb-cost-val green">Included</div>
                 </div>
@@ -1115,7 +1114,7 @@ h1.page-title strong { font-weight: 600; }
         </div>
         <div class="faq-item">
           <div class="faq-q">What counts as a Sprint module?</div>
-          <div class="faq-a">Each Sprint is a pre-built engagement arc for a specific use case — Webinar, Social, or Revival. Pro includes one Sprint of your choice. Elite includes all three. Additional Sprints can be added to any plan for $499/mo each.</div>
+          <div class="faq-a">Each Sprint is a pre-built engagement arc for a specific use case — Webinar, Social, Revival, or Cart. Pro includes one Sprint of your choice. Elite includes all four. Additional Sprints can be added to any plan for $499/mo each.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">Does this replace my CRM?</div>
@@ -1139,7 +1138,7 @@ h1.page-title strong { font-weight: 600; }
         </div>
         <div class="faq-item">
           <div class="faq-q">What messaging channels are included?</div>
-          <div class="faq-a">Starter includes email and SMS. Pro and Elite add WhatsApp and social (Facebook, Instagram). All channels are managed from a single sequence editor.</div>
+          <div class="faq-a">Starter includes email and SMS. Pro and Elite add WhatsApp and social (LinkedIn, Instagram). All channels are managed from a single sequence editor.</div>
         </div>
       </div>
     </div>
@@ -1150,8 +1149,8 @@ h1.page-title strong { font-weight: 600; }
     <h2>Start your free trial.<br><strong>First event's on us.</strong></h2>
     <p>14 days, full access, no credit card. See what a structured follow-up system does to your next webinar's conversion rate.</p>
     <div class="final-actions">
-      <a href="contact-us" class="btn-hero primary">Start free trial</a>
-      <a href="contact-us" class="btn-hero">Book a demo</a>
+      <a href="#" class="btn-hero primary">Start free trial</a>
+      <a href="#" class="btn-hero">Book a demo</a>
     </div>
     <div class="trust-row">
       <div class="trust-item"><div class="trust-dot"></div>No credit card required</div>
