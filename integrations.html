@@ -1,0 +1,391 @@
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  .ls-int-wrap {
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    --ink: #1A1916;
+    --ink-mid: #4A4845;
+    --ink-light: #8A8880;
+    --rule: #E2DED6;
+    --accent-warm: #C4540A;
+    --badge-bg: #EEEAE3;
+    --card-bg: #FFFFFF;
+  }
+
+  .ls-hero {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 4rem 3rem 3rem;
+    text-align: center;
+  }
+
+  .ls-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8A8880;
+    margin-bottom: 1.25rem;
+    display: inline-block;
+  }
+
+  .ls-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.25rem;
+    color: #1A1916;
+  }
+
+  .ls-hero h1 strong { font-weight: 500; }
+
+  .ls-hero-sub {
+    font-size: 1.0625rem;
+    color: #4A4845;
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .ls-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #FFF4EC;
+    border: 1px solid #F4C9A8;
+    color: #C4540A;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .ls-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C4540A;
+    flex-shrink: 0;
+  }
+
+  .ls-divider {
+    height: 1px;
+    background: #E2DED6;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .ls-grid-section {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 3.5rem 3rem 5rem;
+  }
+
+  .ls-section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8A8880;
+    margin-bottom: 1.5rem;
+  }
+
+  .ls-filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .ls-filter-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8125rem;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    border: 1px solid #E2DED6;
+    background: transparent;
+    color: #4A4845;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .ls-filter-btn:hover { border-color: #4A4845; color: #1A1916; }
+  .ls-filter-btn.ls-active { background: #1A1916; color: white; border-color: #1A1916; }
+
+  .ls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .ls-card {
+    background: #FFFFFF;
+    border: 1px solid #E2DED6;
+    border-radius: 12px;
+    padding: 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ls-card:hover {
+    border-color: #C8C4BC;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  .ls-card.ls-beta { border-color: #F4C9A8; }
+
+  .ls-card.ls-beta::before {
+    content: 'Beta';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #FFF4EC;
+    color: #C4540A;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #F4C9A8;
+  }
+
+  .ls-card.ls-soon { opacity: 0.65; }
+
+  .ls-card.ls-soon::before {
+    content: 'Coming soon';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #EEEAE3;
+    color: #8A8880;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .ls-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid #E2DED6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    background: white;
+    overflow: hidden;
+  }
+
+  .ls-logo img { width: 28px; height: 28px; object-fit: contain; }
+
+  .ls-card-name {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+    color: #1A1916;
+  }
+
+  .ls-card-cat {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8A8880;
+    margin-bottom: 0.875rem;
+  }
+
+  .ls-card-desc {
+    font-size: 0.875rem;
+    color: #4A4845;
+    line-height: 1.6;
+    flex: 1;
+    font-weight: 300;
+  }
+
+  .ls-card-arrow {
+    margin-top: 1.25rem;
+    font-size: 0.8125rem;
+    color: #8A8880;
+    transition: color 0.15s;
+    display: block;
+  }
+
+  .ls-card:hover .ls-card-arrow { color: #1A1916; }
+
+  .ls-cta-band {
+    background: #1A1916;
+    color: white;
+    padding: 4rem 3rem;
+  }
+
+  .ls-cta-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .ls-cta-band h2 {
+    font-size: 1.875rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    color: white;
+    margin: 0;
+  }
+
+  .ls-cta-band h2 strong { font-weight: 500; }
+
+  .ls-cta-band p {
+    font-size: 0.9375rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .ls-cta-btn {
+    display: inline-block;
+    background: white;
+    color: #1A1916;
+    padding: 0.625rem 1.5rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .ls-trademark {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 1.25rem 3rem;
+    font-size: 0.75rem;
+    color: #8A8880;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  @media (max-width: 768px) {
+    .ls-hero { padding: 2.5rem 1.5rem 2rem; }
+    .ls-grid-section { padding: 2.5rem 1.5rem 3.5rem; }
+    .ls-cta-band { padding: 2.5rem 1.5rem; }
+    .ls-cta-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .ls-trademark { padding: 1rem 1.5rem; }
+  }
+</style>
+
+<div class="ls-int-wrap">
+
+  <section class="ls-hero">
+    <span class="ls-eyebrow">Integrations</span>
+    <h1>LeadSprint connects to the tools <strong>you already run.</strong></h1>
+    <p class="ls-hero-sub">We don't replace your stack. We sit on top of it and turn raw data from your CRM, email platform, and enrichment sources into a single, scored, actionable intelligence layer.</p>
+    <span class="ls-badge">Beta partner program now open</span>
+  </section>
+
+  <div class="ls-divider"></div>
+
+  <section class="ls-grid-section">
+    <p class="ls-section-label">All integrations</p>
+
+    <div class="ls-filter-bar">
+      <button class="ls-filter-btn ls-active" onclick="lsFilter('all', this)">All</button>
+      <button class="ls-filter-btn" onclick="lsFilter('crm', this)">CRM</button>
+      <button class="ls-filter-btn" onclick="lsFilter('email', this)">Email marketing</button>
+      <button class="ls-filter-btn" onclick="lsFilter('enrichment', this)">Enrichment</button>
+      <button class="ls-filter-btn" onclick="lsFilter('outreach', this)">Outreach</button>
+    </div>
+
+    <div class="ls-grid" id="ls-grid">
+
+      <a href="/integrations/gohighlevel" class="ls-card ls-beta" data-cat="crm">
+        <div class="ls-logo"><img src="https://www.google.com/s2/favicons?domain=gohighlevel.com&sz=64" alt="GoHighLevel"></div>
+        <p class="ls-card-name">GoHighLevel</p>
+        <p class="ls-card-cat">CRM &amp; Automation</p>
+        <p class="ls-card-desc">LeadSprint uses GHL as its primary CRM layer — routing leads, firing suppression, and syncing Pace Score in real time across your pipelines.</p>
+        <span class="ls-card-arrow">View integration →</span>
+      </a>
+
+      <a href="/integrations/constant-contact" class="ls-card ls-beta" data-cat="email">
+        <div class="ls-logo"><img src="https://www.google.com/s2/favicons?domain=constantcontact.com&sz=64" alt="Constant Contact"></div>
+        <p class="ls-card-name">Constant Contact</p>
+        <p class="ls-card-cat">Email Marketing</p>
+        <p class="ls-card-desc">We convert your Constant Contact engagement data into scored, prioritized leads — surfacing who's worth calling today without touching your campaign setup.</p>
+        <span class="ls-card-arrow">View integration →</span>
+      </a>
+
+      <a href="#" class="ls-card ls-soon" data-cat="enrichment">
+        <div class="ls-logo"><img src="https://www.google.com/s2/favicons?domain=apollo.io&sz=64" alt="Apollo.io"></div>
+        <p class="ls-card-name">Apollo.io</p>
+        <p class="ls-card-cat">Enrichment &amp; Prospecting</p>
+        <p class="ls-card-desc">Firmographic enrichment piped directly into your LeadSprint contact model, unified against your CRM and outbound data.</p>
+        <span class="ls-card-arrow">Coming soon</span>
+      </a>
+
+      <a href="#" class="ls-card ls-soon" data-cat="enrichment outreach">
+        <div class="ls-logo"><img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=64" alt="LinkedIn"></div>
+        <p class="ls-card-name">LinkedIn (Sidekick)</p>
+        <p class="ls-card-cat">Enrichment &amp; Social</p>
+        <p class="ls-card-desc">Profile and activity signals from LinkedIn merged into your contact timeline so every channel feeds the same intelligence profile.</p>
+        <span class="ls-card-arrow">Coming soon</span>
+      </a>
+
+      <a href="#" class="ls-card ls-soon" data-cat="crm">
+        <div class="ls-logo"><img src="https://www.google.com/s2/favicons?domain=hubspot.com&sz=64" alt="HubSpot"></div>
+        <p class="ls-card-name">HubSpot</p>
+        <p class="ls-card-cat">CRM</p>
+        <p class="ls-card-desc">Two-way sync with HubSpot contacts and pipelines, with Pace Score and engagement velocity written back as custom properties.</p>
+        <span class="ls-card-arrow">Coming soon</span>
+      </a>
+
+      <a href="#" class="ls-card ls-soon" data-cat="crm">
+        <div class="ls-logo"><img src="https://www.google.com/s2/favicons?domain=salesforce.com&sz=64" alt="Salesforce"></div>
+        <p class="ls-card-name">Salesforce</p>
+        <p class="ls-card-cat">CRM</p>
+        <p class="ls-card-desc">Native Salesforce object sync with lead scoring, routing rules, and suppression propagation across your entire org.</p>
+        <span class="ls-card-arrow">Coming soon</span>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="ls-cta-band">
+    <div class="ls-cta-inner">
+      <h2>We're building this with <strong>beta partners, not for them.</strong></h2>
+      <div>
+        <p>The integrations in beta are live and actively shaping the product. If you're running one of these tools and want a front-row seat — with direct input on what gets built next — we'd like to talk.</p>
+        <a href="/contact-us" class="ls-cta-btn">Apply for beta access</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="ls-trademark">GoHighLevel, Constant Contact, HubSpot, Salesforce, Apollo, and LinkedIn are trademarks of their respective owners.</p>
+
+</div>
+
+<script>
+  function lsFilter(cat, btn) {
+    document.querySelectorAll('.ls-filter-btn').forEach(b => b.classList.remove('ls-active'));
+    btn.classList.add('ls-active');
+    document.querySelectorAll('#ls-grid .ls-card').forEach(function(card) {
+      if (cat === 'all') { card.style.display = ''; return; }
+      card.style.display = (card.dataset.cat || '').includes(cat) ? '' : 'none';
+    });
+  }
+</script>
